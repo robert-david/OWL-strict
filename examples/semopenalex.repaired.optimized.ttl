@@ -1,0 +1,1122 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sp: <http://spinrdf.org/sp#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix soa: <https://semopenalex.org/ontology/> .
+@prefix shr: <http://org.shacl.repairs.tests/> .
+@prefix osncore: <http://open-services.net/ns/core#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+<https://semopenalex.org/ontology/> a owl:Ontology;
+  dcterms:issued "2022-05-12T00:00:00Z"^^xsd:dateTime;
+  dcterms:title "SemOpenAlex Ontology"@en;
+  dcterms:creator <https://orcid.org/0000-0001-5458-8645>, <https://orcid.org/0000-0002-5080-3587>,
+    <https://orcid.org/0000-0002-7561-7000>, <https://orcid.org/0000-0002-9098-5389>,
+    <https://orcid.org/0009-0009-4338-0983>;
+  rdfs:comment "The SemOpenAlex Ontology, described using W3C RDF Schema and the Web Ontology Language OWL."@en;
+  rdfs:label "SemOpenAlex Ontology"@en;
+  dcterms:publisher <http://dbpedia.org/resource/Karlsruhe_Institute_of_Technology>,
+    <http://www.wikidata.org/entity/Q22132500>, <https://www.wikidata.org/wiki/Q158158>;
+  dcterms:modified "2024-06-17T12:58:03.123Z"^^xsd:dateTime;
+  dcterms:created "2022-05-12T00:00:00Z"^^xsd:dateTime;
+  dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/>;
+  bibo:status <http://purl.org/spar/pso/published>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  owl:versionInfo "3.0.0" .
+
+<https://orcid.org/0000-0001-5458-8645> a foaf:Person;
+  foaf:homepage <https://www.aifb.kit.edu/web/Michael_Färber>;
+  rdfs:label "Michael Färber";
+  foaf:mbox <mailto:michael.faerber@tu-dresden.de> .
+
+<https://orcid.org/0000-0002-5080-3587> a foaf:Person;
+  rdfs:label "Johan Krause";
+  foaf:mbox <mailto:johan.krause@student.kit.edu> .
+
+<https://orcid.org/0000-0002-7561-7000> a foaf:Person;
+  rdfs:label "Peter Haase";
+  foaf:mbox <mailto:ph@metaphacts.com> .
+
+<https://orcid.org/0000-0002-9098-5389> a foaf:Person;
+  rdfs:label "David Lamprecht";
+  foaf:mbox <mailto:david.lamprecht@student.kit.edu> .
+
+<https://orcid.org/0009-0009-4338-0983> a foaf:Person;
+  rdfs:label "Linn Aung";
+  foaf:mbox <mailto:la@metaphacts.com> .
+
+dcterms:title a owl:DatatypeProperty;
+  rdfs:label "title"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "title" .
+
+foaf:homepage a owl:DatatypeProperty;
+  rdfs:label "homepage"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "homepage" .
+
+foaf:name a owl:DatatypeProperty;
+  rdfs:label "name"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  dcterms:title "name" .
+
+dcterms:abstract a owl:DatatypeProperty;
+  rdfs:label "abstract"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "abstract" .
+
+<http://purl.org/spar/fabio/hasURL> a owl:DatatypeProperty;
+  rdfs:label "has url"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has url" .
+
+dcterms:creator a owl:ObjectProperty;
+  rdfs:label "creator"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "creator" .
+
+<https://dbpedia.org/property/acronym> a owl:DatatypeProperty;
+  rdfs:label "acronym"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "acronym" .
+
+skos:Concept a owl:Class;
+  rdfs:label "Concept"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "Concept" .
+
+rdfs:seeAlso a owl:ObjectProperty;
+  rdfs:label "see also"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "see also" .
+
+skos:prefLabel a owl:DatatypeProperty;
+  rdfs:label "prefLabel";
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "prefLabel" .
+
+skos:broader a owl:ObjectProperty;
+  rdfs:label "broader";
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "broader" .
+
+foaf:depiction a owl:DatatypeProperty;
+  rdfs:label "depiction"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "depiction" .
+
+<http://purl.org/spar/fabio/hasPublicationYear> a owl:DatatypeProperty;
+  rdfs:label "has publication year"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has publication year" .
+
+soa:Author a owl:Class;
+  rdfs:label "Author"@en;
+  dcterms:modified "2024-06-17T09:40:41.559Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "Author" .
+
+soa:hasAuthor a owl:ObjectProperty;
+  rdfs:label "has author"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has author" .
+
+<http://prismstandard.org/namespaces/basic/2.0/startingPage> a owl:DatatypeProperty;
+  rdfs:label "starting page"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "starting page" .
+
+soa:fatcatId a owl:DatatypeProperty;
+  rdfs:label "fatcatId"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "fatcatId" .
+
+<https://dbpedia.org/ontology/alternativeName> a owl:DatatypeProperty;
+  rdfs:label "alternative name"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "alternative name" .
+
+soa:oaStatus a owl:DatatypeProperty;
+  rdfs:label "oa status"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "oa status" .
+
+soa:Institution a owl:Class;
+  rdfs:label "Institution"@en;
+  dcterms:modified "2024-06-17T09:39:57.822Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "Institution" .
+
+soa:Work a owl:Class;
+  rdfs:label "Work"@en;
+  dcterms:modified "2024-06-17T12:48:22.373Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "admin";
+  dcterms:contributor "admin", "dl@metaphacts.com";
+  skos:prefLabel "Work" .
+
+soa:Concept a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  rdfs:label "Concept"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "Concept" .
+
+soa:Publisher a owl:Class;
+  rdfs:label "Publisher"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "Publisher" .
+
+soa:Source a owl:Class;
+  rdfs:label "Source"@en;
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "Source" .
+
+soa:Funder a owl:Class;
+  rdfs:label "Funder"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "Funder" .
+
+soa:CountsByYear a owl:Class;
+  rdfs:label "CountsByYear"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "CountsByYear" .
+
+soa:OpenAccess a owl:Class;
+  rdfs:label "OpenAccess"@en;
+  dcterms:modified "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "OpenAccess" .
+
+soa:Location a owl:Class;
+  rdfs:label "Location"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "Location" .
+
+soa:crossref a owl:DatatypeProperty;
+  rdfs:label "crossref"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "crossref" .
+
+soa:Authorship a owl:Class;
+  rdfs:label "Authorship"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "Authorship" .
+
+soa:hasAuthorship a owl:ObjectProperty;
+  rdfs:label "has authorship"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has authorship" .
+
+<http://purl.org/spar/cito/cites> a owl:ObjectProperty;
+  rdfs:label "cites"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "cites" .
+
+<http://www.w3.org/ns/org#memberOf> a owl:ObjectProperty;
+  rdfs:label "member of"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "member of" .
+
+<https://dbpedia.org/property/country> a owl:DatatypeProperty;
+  rdfs:label "country"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "country" .
+
+dcterms:publisher a owl:DatatypeProperty;
+  rdfs:label "publisher"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  dcterms:title "publisher" .
+
+soa:year a owl:DatatypeProperty;
+  rdfs:label "year"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "year" .
+
+<https://dbpedia.org/property/city> a owl:DatatypeProperty;
+  rdfs:label "city"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "city" .
+
+soa:crossrefType a owl:DatatypeProperty;
+  rdfs:label "crossers type"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "crossers type" .
+
+soa:hasFunder a owl:ObjectProperty;
+  rdfs:label "has funder"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has funder" .
+
+soa:isOa a owl:DatatypeProperty;
+  rdfs:label "is oa"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "is oa" .
+
+<http://prismstandard.org/namespaces/basic/2.0/issn> a owl:DatatypeProperty;
+  rdfs:label "issn"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "issn" .
+
+<https://dbpedia.org/ontology/orcidId> a owl:DatatypeProperty;
+  rdfs:label "orcid id"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "orcid id" .
+
+dcterms:modified a owl:DatatypeProperty;
+  rdfs:label "modified";
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "modified" .
+
+soa:isInDoaj a owl:DatatypeProperty;
+  rdfs:label "is in doaj"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "is in doaj" .
+
+soa:rawAffiliation a owl:DatatypeProperty;
+  rdfs:label "raw affiliation"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "raw affiliation" .
+
+soa:i10Index a owl:DatatypeProperty;
+  rdfs:label "i10Index"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "i10Index" .
+
+soa:isRetracted a owl:DatatypeProperty;
+  rdfs:label "is retracted"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "is retracted" .
+
+soa:isCorresponding a owl:DatatypeProperty;
+  rdfs:label "is corresponding"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "is corresponding" .
+
+soa:grid a owl:DatatypeProperty;
+  rdfs:label "grid"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "grid" .
+
+soa:hasOpenAccess a owl:ObjectProperty;
+  rdfs:label "has open access"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has open access" .
+
+soa:hasLocation a owl:ObjectProperty;
+  rdfs:label "has location"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has location" .
+
+soa:hasBestOaLocation a owl:ObjectProperty;
+  rdfs:label "hasBestOaLocation"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "hasBestOaLocation" .
+
+soa:hasAssociatedInstitution a owl:ObjectProperty;
+  rdfs:label "has associated institution"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  dcterms:title "has associated institution" .
+
+soa:oaUrl a owl:DatatypeProperty;
+  rdfs:label "oa url"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "oa url" .
+
+soa:alternativeName a owl:DatatypeProperty;
+  rdfs:label "alternative name"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "alternative name" .
+
+<http://prismstandard.org/namespaces/basic/2.0/publicationDate> a owl:DatatypeProperty;
+  rdfs:label "publication date"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "publication date" .
+
+soa:worksCount a owl:DatatypeProperty;
+  rdfs:label "worksCount";
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "worksCount" .
+
+soa:umlsAui a owl:DatatypeProperty;
+  rdfs:label "umls aui"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "umls aui" .
+
+soa:hasOrganization a owl:ObjectProperty;
+  rdfs:label "has organizsation"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has organizsation" .
+
+<http://purl.org/spar/fabio/hasPubMedCentralId> a owl:DatatypeProperty;
+  rdfs:label "has pubmed central id"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has pubmed central id" .
+
+soa:isParatext a owl:DatatypeProperty;
+  rdfs:label "is paratext"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "is paratext" .
+
+soa:hasConceptScore a owl:ObjectProperty;
+  rdfs:label "has concept score"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has concept score" .
+
+soa:Geo a owl:Class;
+  rdfs:label "Geo"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "Geo" .
+
+<https://dbpedia.org/ontology/location> a owl:ObjectProperty;
+  rdfs:label "location"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "location" .
+
+soa:sourceType a owl:DatatypeProperty;
+  rdfs:label "sourceType"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "sourceType" .
+
+soa:hasParentPublisher a owl:ObjectProperty;
+  rdfs:label "hasParentPublisher"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "hasParentPublisher" .
+
+soa:level a owl:DatatypeProperty;
+  rdfs:label "level"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "level" .
+
+<http://purl.org/spar/bido/h-index> a owl:DatatypeProperty;
+  rdfs:label "h-index"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "h-index" .
+
+soa:ror a owl:DatatypeProperty;
+  rdfs:label "ror"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "ror" .
+
+<https://dbpedia.org/property/scopus> a owl:DatatypeProperty;
+  rdfs:label "scopes"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "scopes" .
+
+dcterms:created a owl:DatatypeProperty;
+  rdfs:label "created";
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "created" .
+
+soa:apcUsd a owl:DatatypeProperty;
+  rdfs:comment "Source's article processing charge in US Dollars, if available from DOAJ"@en;
+  rdfs:label "apcUsd"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "apcUsd" .
+
+soa:hasIssue a owl:DatatypeProperty;
+  rdfs:label "has issue"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has issue" .
+
+skos:note a owl:DatatypeProperty;
+  rdfs:label "note";
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  dcterms:title "note" .
+
+<http://prismstandard.org/namespaces/basic/2.0/doi> a owl:DatatypeProperty;
+  rdfs:label "doi"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "doi" .
+
+<http://www.geonames.org/ontology#countryCode> a owl:DatatypeProperty;
+  rdfs:label "country code"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "country code" .
+
+soa:hasSource a owl:ObjectProperty;
+  rdfs:label "has source"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has source" .
+
+<https://dbpedia.org/property/countryCode> a owl:DatatypeProperty;
+  rdfs:label "country code"@en, "country code";
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "country code" .
+
+soa:rorType a owl:DatatypeProperty;
+  rdfs:label "ror type"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "ror type" .
+
+soa:hasVersion a owl:DatatypeProperty;
+  rdfs:label "has version"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has version" .
+
+<https://dbpedia.org/property/twitter> a owl:DatatypeProperty;
+  rdfs:label "twitter"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "twitter" .
+
+soa:countsByYear a owl:ObjectProperty;
+  rdfs:label "counts by year"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "counts by year" .
+
+<http://prismstandard.org/namespaces/basic/2.0/endingPage> a owl:DatatypeProperty;
+  rdfs:label "ending page"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "ending page" .
+
+soa:hasPrimaryLocation a owl:ObjectProperty;
+  rdfs:label "has primary location"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has primary location" .
+
+soa:hasVolume a owl:DatatypeProperty;
+  rdfs:label "has volume"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has volume" .
+
+<https://dbpedia.org/property/region> a owl:DatatypeProperty;
+  rdfs:label "region"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "region" .
+
+soa:position a owl:DatatypeProperty;
+  rdfs:label "position"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  dcterms:title "position" .
+
+soa:grantsCount a owl:DatatypeProperty;
+  rdfs:label "grantsCount"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "grantsCount" .
+
+soa:hasHostOrganization a owl:ObjectProperty;
+  rdfs:label "hasHostOrganization"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "hasHostOrganization" .
+
+soa:imageThumbnail a owl:DatatypeProperty;
+  rdfs:label "image thumbnail"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "image thumbnail" .
+
+soa:score a owl:DatatypeProperty;
+  rdfs:label "score"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "score" .
+
+soa:hasConcept a owl:ObjectProperty;
+  rdfs:label "has concept"@en, "has concept";
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has concept" .
+
+soa:magId a owl:DatatypeProperty;
+  rdfs:label "mag id"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "mag id" .
+
+<http://purl.org/spar/fabio/hasPubMedId> a owl:DatatypeProperty;
+  rdfs:label "has pubmed id"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has pubmed id" .
+
+soa:hasRelatedWork a owl:ObjectProperty;
+  rdfs:label "has related work"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has related work" .
+
+soa:2YrMeanCitedness a owl:DatatypeProperty;
+  rdfs:label "2YrMeanCitedness"@en, "2 year mean citedness"@ru, "2YrMeanCitedness";
+  dcterms:modified "2024-06-17T09:39:57.822Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "2YrMeanCitedness", "2 year mean citedness" .
+
+soa:umlsCui a owl:DatatypeProperty;
+  rdfs:label "umls cui"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "umls cui" .
+
+soa:citedByCount a owl:DatatypeProperty;
+  rdfs:label "citedByCount";
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "citedByCount" .
+
+skos:related a owl:ObjectProperty;
+  rdfs:label "related";
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "related" .
+
+dcterms:license a owl:DatatypeProperty;
+  rdfs:label "license"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "license" .
+
+<http://purl.org/spar/fabio/hasIssnL> a owl:DatatypeProperty;
+  rdfs:label "has issn"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has issn" .
+
+soa:Domain a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "Domain"@en;
+  dcterms:modified "2024-06-17T12:58:03.123Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "admin";
+  dcterms:contributor "admin", "dl@metaphacts.com";
+  skos:prefLabel "Domain" .
+
+soa:Topic a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "Topic"@en;
+  dcterms:modified "2024-06-17T12:58:03.123Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "admin";
+  dcterms:contributor "admin", "dl@metaphacts.com";
+  skos:prefLabel "Topic" .
+
+soa:hasTopic a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasTopic";
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasTopic" .
+
+soa:Subfield a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "Subfield"@en;
+  dcterms:modified "2024-06-17T12:58:03.123Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "admin";
+  dcterms:contributor "admin", "dl@metaphacts.com";
+  skos:prefLabel "Subfield" .
+
+soa:Field a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "Field"@en;
+  dcterms:modified "2024-06-17T12:58:03.123Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "admin";
+  dcterms:contributor "admin", "dl@metaphacts.com";
+  skos:prefLabel "Field" .
+
+soa:Keyword a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "Keyword"@en;
+  dcterms:modified "2024-06-17T12:58:03.123Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "admin";
+  dcterms:contributor "admin", "dl@metaphacts.com";
+  skos:prefLabel "Keyword" .
+
+soa:hasKeyword a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasKeyword";
+  dcterms:modified "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasKeyword" .
+
+soa:pdfUrl a owl:DatatypeProperty;
+  rdfs:label "pdfUrl"@en;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  skos:prefLabel "pdfUrl" .
+
+soa:hasPrimaryTopic a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasPrimaryTopic";
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasPrimaryTopic" .
+
+soa:hasSustainableDevelopmentGoal a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasSustainableDevelopmentGoal";
+  dcterms:modified "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasSustainableDevelopmentGoal" .
+
+soa:countriesDistinctCount a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "countries distinct count"@en;
+  dcterms:modified "2024-06-17T09:29:38.035Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:29:38.035Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "countries distinct count" .
+
+soa:institutionsDistinctCount a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "institutions distinct count"@en;
+  dcterms:modified "2024-06-17T09:30:51.854Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:30:51.854Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "institutions distinct count" .
+
+soa:metadataLanguage a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "metadata language"@en;
+  dcterms:modified "2024-06-17T09:30:51.854Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:30:51.854Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "metadata language" .
+
+soa:hasMesh a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasMesh";
+  dcterms:modified "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasMesh" .
+
+soa:indexedIn a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "indexed in"@en;
+  dcterms:modified "2024-06-17T09:42:47.032Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:42:47.032Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "indexed in" .
+
+soa:ArticleProcessingCharge a owl:Class;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "ArticleProcessingCharge"@en;
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "ArticleProcessingCharge" .
+
+soa:hasCurrency a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "has currency"@en;
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has currency" .
+
+soa:hasProvenance a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "has provenance"@en;
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has provenance" .
+
+soa:hasValue a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "has value"@en;
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has value" .
+
+soa:anyRepositoryHasFulltext a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "any repository has fulltext"@en;
+  dcterms:modified "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "any repository has fulltext" .
+
+soa:abbreviatedName a owl:DatatypeProperty;
+  rdfs:label "abbreviatedName"@en, "abbreviated name"@ru;
+  dcterms:modified "2024-06-17T09:39:57.822Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  dcterms:title "abbreviatedName", "abbreviated name" .
+
+<http://www.geonames.org/ontology#geonamesID> a owl:DatatypeProperty;
+  rdfs:label "genames id"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "genames id" .
+
+<http://www.geonames.org/ontology#lat> a owl:DatatypeProperty;
+  rdfs:label "lat"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "lat" .
+
+<http://www.geonames.org/ontology#long> a owl:DatatypeProperty;
+  rdfs:label "long"@en;
+  dcterms:modified "2024-06-17T09:24:55.070Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "long" .
+
+soa:hasValueUsd a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "has value usd"@en;
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has value usd" .
+
+soa:hasApcList a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasAPCList";
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasAPCList" .
+
+soa:hasApc a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasAPC";
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasAPC" .
+
+soa:hasAffiliation a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasAffiliation";
+  dcterms:modified "2024-06-17T09:40:41.559Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:40:41.559Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasAffiliation" .
+
+soa:hasChildInstitution a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasChildInstitution";
+  dcterms:modified "2024-06-17T09:39:57.822Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:39:57.822Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasChildInstitution" .
+
+soa:hasParentInstitution a owl:ObjectProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "hasParentInstitution";
+  dcterms:modified "2024-06-17T09:39:57.822Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:39:57.822Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "hasParentInstitution" .
+
+soa:hasPrice a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "has price"@en;
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has price" .
+
+soa:hasPriceUsd a owl:DatatypeProperty;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "has price usd"@en;
+  dcterms:modified "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:28:21.422Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "dl@metaphacts.com";
+  dcterms:contributor "dl@metaphacts.com";
+  skos:prefLabel "has price usd" .
+
+<http://metadata.un.org/sdg/ontology#Goal> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "SustainableDevelopmentGoal"@en;
+  dcterms:modified "2024-06-17T12:58:03.123Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "admin";
+  dcterms:contributor "admin", "dl@metaphacts.com";
+  skos:prefLabel "SustainableDevelopmentGoal" .
+
+<http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> a owl:Class;
+  rdfs:subClassOf skos:Concept;
+  dcterms:creator "dl@metaphacts.com";
+  rdfs:label "TopicalDescriptor"@en;
+  dcterms:modified "2024-06-17T12:58:03.123Z"^^xsd:dateTime;
+  dcterms:created "2024-06-17T09:33:46.358Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://semopenalex.org/ontology/>;
+  osncore:modifiedBy "admin";
+  dcterms:contributor "admin", "dl@metaphacts.com";
+  skos:prefLabel "TopicalDescriptor" .
