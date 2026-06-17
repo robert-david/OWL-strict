@@ -345,10 +345,10 @@
   rdfs:range :Keyword;
   rdfs:label "keyword" .
 
-:category a rdf:Property, owl:DatatypeProperty;
+:category a rdf:Property, owl:ObjectProperty;
+  rdfs:subPropertyOf :element;
   rdfs:seeAlso <http://docs.oasis-open.org/dita/v1.2/os/spec/langref/category.html>;
   rdfs:comment "The category element represents any category by which a topic might be classified for retrieval or navigation."@en-US;
-  rdfs:range xsd:string;
   rdfs:label "category" .
 
 :lang a rdf:Property, owl:DatatypeProperty;
@@ -483,7 +483,7 @@
   rdfs:range xsd:string .
 
 :keys a rdf:Property, owl:ObjectProperty;
-  rdfs:domain :Keydef;
+  rdfs:domain :Topicref;
   rdfs:label "keys";
   rdfs:comment "This attribute is used to reference content that can be reused."@en-US;
   rdfs:seeAlso <http://docs.oasis-open.org/dita/v1.2/os/spec/common/thekeysattribute.html>;
@@ -507,7 +507,7 @@
   rdfs:comment "Attribute used to store the class attribute and identify the nature of the Conref/Conkeyref."@en-US;
   rdfs:seeAlso <http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/classatt.html>;
   rdfs:range xsd:string;
-  rdfs:domain :Conref;
+  rdfs:domain :Conkeyref;
   rdfs:label "class" .
 
 :Audience a rdfs:Class, owl:Class;
@@ -536,7 +536,7 @@
   rdfs:label "experiencelevel";
   rdfs:domain :Audience .
 
-:created a owl:ObjectProperty;
+:created a owl:DatatypeProperty;
   rdfs:subPropertyOf dcterms:created;
   rdfs:comment "The created element specifies the document creation date using the date attribute."@en-US;
   rdfs:range dcterms:W3CDTF;
@@ -544,21 +544,21 @@
   rdfs:label "created";
   rdfs:seeAlso <http://docs.oasis-open.org/dita/v1.2/os/spec/langref/created.html> .
 
-:createdGolive a rdf:Property, owl:ObjectProperty;
+:createdGolive a rdf:Property, owl:DatatypeProperty;
   rdfs:comment "The publication or general availability (GA) date, entered as YYYY-MM-DD, where YYYY is the year, MM is the month from 01 to 12, and DD is the day from 01-31."@en-US;
   rdfs:range dcterms:W3CDTF;
   rdfs:domain :Doctype;
   rdfs:label "created (golive)";
   rdfs:seeAlso <http://docs.oasis-open.org/dita/v1.2/os/spec/langref/created.html> .
 
-:createdExpiry a rdf:Property, owl:ObjectProperty;
+:createdExpiry a rdf:Property, owl:DatatypeProperty;
   rdfs:comment "The date when the information should be retired or refreshed, entered as YYYY-MM-DD, where YYYY is the year, MM is the month from 01 to 12, and DD is the day from 01-31."@en-US;
   rdfs:range dcterms:W3CDTF;
   rdfs:domain :Doctype;
   rdfs:label "created (expiry)";
   rdfs:seeAlso <http://docs.oasis-open.org/dita/v1.2/os/spec/langref/created.html> .
 
-:revised a owl:ObjectProperty;
+:revised a owl:DatatypeProperty;
   rdfs:subPropertyOf dcterms:revised;
   rdfs:comment "The revised element in the prolog is used to maintain tracking dates that are important in a topic development cycle, such as the last modification date, the original availability date, and the expiration date."@en-US;
   rdfs:range dcterms:W3CDTF;
@@ -566,14 +566,14 @@
   rdfs:label "revised";
   rdfs:seeAlso <http://docs.oasis-open.org/dita/v1.2/os/spec/langref/revised.html> .
 
-:revisedGolive a rdf:Property, owl:ObjectProperty;
+:revisedGolive a rdf:Property, owl:DatatypeProperty;
   rdfs:comment "The publication or general availability (GA) date, entered as YYYY-MM-DD, where YYYY is the year, MM is the month from 01 to 12, and DD is the day from 01-31."@en-US;
   rdfs:range dcterms:W3CDTF;
   rdfs:domain :Doctype;
   rdfs:label "revised (golive)";
   rdfs:seeAlso <http://docs.oasis-open.org/dita/v1.2/os/spec/langref/revised.html> .
 
-:revisedExpiry a rdf:Property, owl:ObjectProperty;
+:revisedExpiry a rdf:Property, owl:DatatypeProperty;
   rdfs:comment "The date when the information should be retired or refreshed, entered as YYYY-MM-DD, where YYYY is the year, MM is the month from 01 to 12, and DD is the day from 01-31."@en-US;
   rdfs:range dcterms:W3CDTF;
   rdfs:domain :Doctype;
@@ -615,11 +615,9 @@
   rdfs:seeAlso <http://docs.oasis-open.org/dita/v1.2/os/spec/langref/vrm.html>;
   rdfs:comment "The vrm element contains information about a single product's version, modification, and release, to which the current topic applies."@en-US .
 
-dcterms:revised a owl:ObjectProperty .
+dcterms:revised a owl:DatatypeProperty .
 
-dcterms:created a owl:ObjectProperty .
-
-dcterms:W3CDTF a owl:Class .
+dcterms:created a owl:DatatypeProperty .
 
 dcterms:source a owl:DatatypeProperty .
 
@@ -629,210 +627,10 @@ dcterms:author a owl:DatatypeProperty .
 
 dcterms:title a owl:DatatypeProperty .
 
+dcterms:W3CDTF a rdfs:Datatype .
+
 xsd:integer a rdfs:Datatype .
 
 xsd:language a rdfs:Datatype .
 
 xsd:string a rdfs:Datatype .
-
-<http://purl.org/dc/terms/revised> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dc/terms/created> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#referenceObject> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#topicref> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#element> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#audience> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#chapter> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#href> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#revisedGolive> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#backmatter> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#xref> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#keydef> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#subtopic> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#keys> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#createdExpiry> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#conref> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#link> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#part> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#prodinfo> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#mapref> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#createdGolive> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#revised> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#notices> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#keyref> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#othermeta> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#frontmatter> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#created> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#conkeyref> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#keyword> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#revisedExpiry> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dita/ns#ReferenceObject> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Audience> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Keyword> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Prodinfo> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Key> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Topic> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Doctype> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dc/terms/W3CDTF> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Map> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Keydef> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Topicref> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Conref> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Conkeyref> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningSummary> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Link> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningPreAssessmentRef> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Concept> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningAssessment> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Reference> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Xref> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningContentRef> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Coderef> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningSummaryRef> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningContentComponentRef> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Mapref> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningOverview> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningPostAssessmentRef> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Bookmap> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningPlan> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Image> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Varname> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningObject> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Task> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Parmname> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningBase> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#Keyref> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningContent> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningPlanRef> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dita/ns#LearningOverviewRef> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://purl.org/dc/terms/source> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dc/terms/author> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#metadata> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dc/terms/title> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#publisher> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#experiencelevel> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#category> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#text> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#xtrf> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#source> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#title> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#lang> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#keyname> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#audienceType> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#platform> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#searchtitle> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#id> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#class> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#booklibrary> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#vrmModification> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#vrmVersion> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#booktitlealt> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#author> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#permissions> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#prodname> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#vrmRelease> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#job> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#scope> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#copyright> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#shortdesc> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#format> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-
-<http://purl.org/dita/ns#mainbooktitle> a <http://www.w3.org/2002/07/owl#DatatypeProperty> .

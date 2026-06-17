@@ -7,6 +7,14 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+dct:description a owl:AnnotationProperty .
+
+dct:contributor a owl:AnnotationProperty .
+
+dct:license a owl:AnnotationProperty .
+
+dct:modified a owl:AnnotationProperty .
+
 <https://ekgf.github.io/dprod/> a owl:Ontology;
   dct:title "The Data Product (DPROD) Ontology"@en;
   rdfs:label "DPROD ontology"@en;
@@ -149,40 +157,12 @@ dcat:distribution a owl:ObjectProperty .
 
 dcat:accessService a owl:ObjectProperty .
 
-dct:description a owl:ObjectProperty .
-
-dct:modified a owl:ObjectProperty .
-
-dct:license a owl:ObjectProperty .
-
-dct:contributor a owl:ObjectProperty .
-
-prov:Agent a owl:Class .
+dcat:Dataset a owl:Class .
 
 dcat:DataService a owl:Class .
 
-dcat:Dataset a owl:Class .
+prov:Agent a owl:Class .
 
 dcat:Resource a owl:Class .
 
 xsd:string a rdfs:Datatype .
-
-<http://www.w3.org/ns/dcat#distribution> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://www.w3.org/ns/dcat#accessService> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dc/terms/description> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dc/terms/modified> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dc/terms/license> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://purl.org/dc/terms/contributor> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://www.w3.org/ns/prov#Agent> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/ns/dcat#DataService> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/ns/dcat#Dataset> a <http://www.w3.org/2002/07/owl#Class> .
-
-<http://www.w3.org/ns/dcat#Resource> a <http://www.w3.org/2002/07/owl#Class> .

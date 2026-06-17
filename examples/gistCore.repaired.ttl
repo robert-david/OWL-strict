@@ -760,8 +760,6 @@ _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd156 a owl:Restriction;
   owl:onClass gist:CountryGeoRegion;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd158 owl:inverseOf gist:isGovernedBy .
-
 _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd160 rdf:first _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd159;
   rdf:rest rdf:nil .
 
@@ -2396,8 +2394,6 @@ _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd473 a owl:Restriction;
   owl:onProperty _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd475;
   owl:someValuesFrom gist:GeoRegion .
 
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd475 owl:inverseOf gist:isGovernedBy .
-
 _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd477 rdf:first _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd476;
   rdf:rest rdf:nil .
 
@@ -3044,7 +3040,8 @@ gist:directs a owl:ObjectProperty;
   skos:definition "The set of actuators that a controller can affect";
   skos:prefLabel "directs" .
 
-gist:domainIncludes rdfs:subPropertyOf skos:scopeNote;
+gist:domainIncludes a owl:AnnotationProperty;
+  rdfs:subPropertyOf skos:scopeNote;
   rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore>;
   skos:definition "Relates a property to a class that is (one of) the type(s) the property is expected to be used on.";
   skos:example "The domain for the property gist:hasMember includes gist:Collection.";
@@ -3115,7 +3112,6 @@ gist:hasAltitude a owl:ObjectProperty;
   skos:prefLabel "has altitude" .
 
 gist:hasBaseUnit a owl:ObjectProperty;
-  rdfs:subPropertyOf gist:hasStandardUnit;
   rdfs:domain gist:UnitOfMeasure;
   rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore>;
   rdfs:range gist:BaseUnit;
@@ -3278,6 +3274,7 @@ gist:hasRecipient a owl:ObjectProperty;
 gist:hasStandardUnit a owl:ObjectProperty;
   rdfs:domain gist:UnitOfMeasure;
   rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore>;
+  rdfs:range gist:CoherentUnit;
   skos:definition "For a complex unit refers to a unit that has all the component parts in SI";
   skos:prefLabel "has standard unit" .
 
@@ -3385,7 +3382,9 @@ gist:isGeographicallyContainedIn a owl:ObjectProperty, owl:TransitiveProperty;
   skos:prefLabel "is geographically contained in" .
 
 gist:isGovernedBy a owl:ObjectProperty;
+  rdfs:domain _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd558;
   rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore>;
+  rdfs:range _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd568;
   skos:definition "A reference from the thing being governed to the governor";
   skos:prefLabel "is governed by" .
 
@@ -3480,7 +3479,8 @@ gist:isRenderedOn a owl:ObjectProperty;
   skos:definition "What media something was rendered On";
   skos:prefLabel "is rendered on" .
 
-gist:isSupersededBy rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore>;
+gist:isSupersededBy a owl:AnnotationProperty;
+  rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore>;
   skos:definition "Relates a deprecated term to a term that replaces it, which is either an exact (in the case of simple renaming) or approximate (in the case of renaming and some semantic change) semantic match.";
   skos:example "gist:connectedTo gist:isSupersededBy gist:isConnectedTo (renaming with no semantic change).";
   skos:prefLabel "is superseded by" .
@@ -3505,7 +3505,8 @@ gist:latitude a owl:DatatypeProperty;
   skos:definition "Degrees above or below equator";
   skos:prefLabel "latitude" .
 
-gist:license rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore>;
+gist:license a owl:AnnotationProperty;
+  rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore>;
   skos:definition "An annotation for providing the licensing on this or derivative ontologies";
   skos:prefLabel "license" .
 
@@ -3751,7 +3752,8 @@ gist:providesOrderFor a owl:ObjectProperty, owl:FunctionalProperty;
   skos:definition "Links a member of an ordered collection to the real-world item it represents in that collection.";
   skos:prefLabel "provides order for" .
 
-gist:rangeIncludes rdfs:subPropertyOf skos:scopeNote;
+gist:rangeIncludes a owl:AnnotationProperty;
+  rdfs:subPropertyOf skos:scopeNote;
   rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore>;
   skos:definition "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property.";
   skos:example "The range for the property gist:isCategorizedBy includes gist:Category.";
@@ -3859,10 +3861,6 @@ _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd610 rdf:first gist:_mole;
 _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd611 rdf:first gist:_second;
   rdf:rest rdf:nil .
 
-gist:isRecognizedDirectlyBy rdfs:range _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd573 .
-
-gist:isRecordedAt rdfs:range xsd:dateTime .
-
 _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd504 a owl:ObjectProperty .
 
 _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd233 a owl:ObjectProperty .
@@ -3883,15 +3881,9 @@ _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd394 a owl:ObjectProperty .
 
 _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd387 a owl:ObjectProperty .
 
-skos:scopeNote a owl:ObjectProperty .
+gist:isRecognizedDirectlyBy rdfs:range _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd573 .
 
-gist:domainIncludes a owl:ObjectProperty .
-
-gist:license a owl:ObjectProperty .
-
-gist:rangeIncludes a owl:ObjectProperty .
-
-gist:isSupersededBy a owl:ObjectProperty .
+gist:isRecordedAt rdfs:range xsd:dateTime .
 
 xsd:dateTime a rdfs:Datatype .
 
@@ -3920,6 +3912,8 @@ _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd104 a owl:Class .
 _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd24 a owl:Class .
 
 _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd44 a owl:Class .
+
+skos:scopeNote a owl:AnnotationProperty .
 
 xsd:byte a rdfs:Datatype .
 
@@ -3958,67 +3952,3 @@ xsd:unsignedShort a rdfs:Datatype .
 owl:rational a rdfs:Datatype .
 
 owl:real a rdfs:Datatype .
-
-<https://w3id.org/semanticarts/ns/ontology/gist/isRecognizedDirectlyBy> <http://www.w3.org/2000/01/rdf-schema#range>
-    _:3d5454f0d7fc4f2d9a40a4dc47f9c0cd573 .
-
-<https://w3id.org/semanticarts/ns/ontology/gist/isRecordedAt> <http://www.w3.org/2000/01/rdf-schema#range>
-    <http://www.w3.org/2001/XMLSchema#dateTime> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd504 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd233 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd475 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd338 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd464 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd344 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd397 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd158 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd394 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd387 a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://www.w3.org/2004/02/skos/core#scopeNote> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<https://w3id.org/semanticarts/ns/ontology/gist/domainIncludes> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<https://w3id.org/semanticarts/ns/ontology/gist/license> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<https://w3id.org/semanticarts/ns/ontology/gist/rangeIncludes> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<https://w3id.org/semanticarts/ns/ontology/gist/isSupersededBy> a <http://www.w3.org/2002/07/owl#ObjectProperty> .
-
-<http://www.w3.org/2001/XMLSchema#dateTime> a <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd517 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd518 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd519 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd414 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd410 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd411 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd412 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd413 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd343 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd103 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd104 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd24 a <http://www.w3.org/2002/07/owl#Class> .
-
-_:3d5454f0d7fc4f2d9a40a4dc47f9c0cd44 a <http://www.w3.org/2002/07/owl#Class> .
