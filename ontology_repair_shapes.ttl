@@ -4,158 +4,213 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix : <http://org.shacl.repairs.tests/> .
 
-:ClassShape a sh:NodeShape ;
-    sh:targetClass rdfs:Class, owl:Class ;
-    sh:targetSubjectsOf rdfs:subClassOf, owl:disjointWith ;
-    sh:targetObjectsOf rdfs:subClassOf, owl:disjointWith ;
-    sh:class owl:Class ;
+:ClassShape a sh:NodeShape;
+    sh:targetClass rdfs:Class, owl:Class;
+    sh:targetSubjectsOf rdfs:subClassOf, owl:disjointWith;
+    sh:targetObjectsOf rdfs:subClassOf, owl:disjointWith;
+    sh:class owl:Class;
     sh:not [
-        sh:class rdfs:Datatype ;
+        sh:class rdfs:Datatype;
     ] .
 
-:DatatypeShape a sh:NodeShape ;
-    sh:class rdfs:Datatype ;
+:DatatypeShape a sh:NodeShape;
+    sh:class rdfs:Datatype;
     sh:not [
-        sh:class owl:Class ;
+        sh:class owl:Class;
     ].
 
-:PropertyShape a sh:NodeShape ;
+:PropertyShape a sh:NodeShape;
     sh:targetClass rdf:Property , owl:ObjectProperty, owl:DatatypeProperty, owl:SymmetricProperty, owl:FunctionalProperty,
-    owl:AnnotationProperty, owl:OntologyProperty ;
-    sh:targetSubjectsOf rdfs:subPropertyOf, rdfs:domain, rdfs:range, owl:inverseOf ;
-    sh:targetObjectsOf rdfs:subPropertyOf , owl:inverseOf ;
+    owl:AnnotationProperty, owl:OntologyProperty;
+    sh:targetSubjectsOf rdfs:subPropertyOf, rdfs:domain, rdfs:range, owl:inverseOf;
+    sh:targetObjectsOf rdfs:subPropertyOf , owl:inverseOf;
     sh:or (
         [ sh:node :ObjectPropertyShape ]
         [ sh:node :DatatypePropertyShape ]
-    ) ;
+        [ sh:node :AnnotationPropertyShape ]
+        [ sh:node :OntologyPropertyShape ]
+    );
     sh:property [
-        sh:path rdfs:domain ;
-        sh:maxCount 1 ;
-        sh:node :ClassShape ;
-    ] ;
+        sh:path rdfs:domain;
+        sh:maxCount 1;
+        sh:node :ClassShape;
+    ];
     sh:property [
-        sh:path ( rdfs:domain owl:unionOf [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
-        sh:node :ClassShape ;
-    ] ;
+        sh:path ( rdfs:domain owl:unionOf [ sh:zeroOrMorePath rdf:rest ] rdf:first );
+        sh:node :ClassShape;
+    ];
     sh:property [
-        sh:path rdfs:range ;
-        sh:maxCount 1 ;
-    ] ;
+        sh:path rdfs:range;
+        sh:maxCount 1;
+    ];
     sh:not [
-        sh:class owl:Class ;
-    ] ;
+        sh:class owl:Class;
+    ];
     sh:not [
-        sh:class rdfs:Datatype ;
-    ] ;
-    sh:not [
-        sh:class owl:AnnotationProperty ;
-    ] ;
-    sh:not [
-        sh:class owl:OntologyProperty ;
+        sh:class rdfs:Datatype;
     ] .
 
-:ObjectPropertyShape a sh:NodeShape ;
-        sh:class owl:ObjectProperty ;
-        sh:not [
-            sh:class owl:DatatypeProperty ;
-        ] ;
-        sh:property [
-            sh:path rdfs:range ;
-            sh:node :ClassShape ;
-        ] ;
-       sh:property [
-            sh:path ( rdfs:range owl:unionOf [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
-            sh:node :ClassShape ;
-        ] ;
-        sh:property [
-            sh:path rdfs:subPropertyOf ;
-            sh:class owl:ObjectProperty ;
-        ] .
-
-:DatatypePropertyShape a sh:NodeShape ;
-        sh:targetClass owl:DatatypeProperty ;
-        sh:class owl:DatatypeProperty ;
-        sh:not [
-            sh:class owl:ObjectProperty ;
-        ] ;
-        sh:property [
-            sh:path rdfs:range ;
-            sh:node :DatatypeShape ;
-        ] ;
-        sh:not [ sh:property [
-            sh:path rdfs:range ;
-            sh:minCount 1 ;
-            sh:node :ClassShape ;
-        ]] ;
-        sh:property [
-            sh:path ( rdfs:range owl:unionOf [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
-            sh:node :DatatypeShape ;
-        ] ;
-        sh:property [
-            sh:path rdfs:subPropertyOf ;
-            sh:class owl:DatatypeProperty ;
-        ] .
-
-:FunctionalPropertyShape a sh:NodeShape ;
-    sh:targetClass owl:FunctionalProperty ;
+:ObjectPropertyShape a sh:NodeShape;
+    sh:class owl:ObjectProperty;
     sh:property [
-        sh:path [ sh:inversePath rdfs:subPropertyOf ] ;
-        sh:class owl:FunctionalProperty ;
+        sh:path rdfs:range;
+        sh:node :ClassShape;
+    ];
+    sh:property [
+        sh:path ( rdfs:range owl:unionOf [ sh:zeroOrMorePath rdf:rest ] rdf:first );
+        sh:node :ClassShape;
+    ];
+    sh:property [
+        sh:path rdfs:subPropertyOf;
+        sh:class owl:ObjectProperty;
+    ];
+    sh:not [
+        sh:class owl:DatatypeProperty;
+    ];
+    sh:not [
+        sh:class owl:AnnotationProperty;
+    ];
+    sh:not [
+        sh:class owl:OntologyProperty;
     ] .
 
-:SymmetricPropertyShape a sh:NodeShape ;
-    sh:targetClass owl:SymmetricProperty ;
-    sh:class owl:ObjectProperty ;
+:DatatypePropertyShape a sh:NodeShape;
+    sh:targetClass owl:DatatypeProperty;
+    sh:class owl:DatatypeProperty;
     sh:property [
-        sh:path rdfs:domain ;
-        sh:equals rdfs:range ;
-    ] ;
+        sh:path rdfs:range;
+        sh:node :DatatypeShape;
+    ];
     sh:property [
-        sh:path [ sh:inversePath rdfs:subPropertyOf ] ;
-        sh:class owl:SymmetricProperty ;
+        sh:path ( rdfs:range owl:unionOf [ sh:zeroOrMorePath rdf:rest ] rdf:first );
+        sh:node :DatatypeShape;
+    ];
+    sh:property [
+        sh:path rdfs:subPropertyOf;
+        sh:class owl:DatatypeProperty;
+    ];
+    sh:not [
+        sh:class owl:ObjectProperty;
+    ];
+    sh:not [
+        sh:class owl:AnnotationProperty;
+    ];
+    sh:not [
+        sh:class owl:OntologyProperty;
     ] .
 
-:InversePropertyShape a sh:NodeShape ;
-    sh:targetSubjectsOf owl:inverseOf ;
-    sh:class owl:ObjectProperty ;
+:AnnotationPropertyShape a sh:NodeShape;
+    sh:class owl:AnnotationProperty;
+    sh:not [
+        sh:class owl:ObjectProperty;
+    ];
+    sh:not [
+        sh:class owl:DatatypeProperty;
+    ];
+    sh:not [
+        sh:class owl:OntologyProperty;
+    ];
     sh:property [
-        sh:path owl:inverseOf ;
-        sh:class owl:ObjectProperty ;
-    ] ;
+        sh:path rdfs:domain;
+        sh:maxCount 0;
+    ];
     sh:property [
-        sh:path ( owl:inverseOf rdfs:domain ) ;
-        sh:equals rdfs:range ;
-    ] ;
+        sh:path rdfs:range;
+        sh:maxCount 0;
+    ];
     sh:property [
-        sh:path ( owl:inverseOf rdfs:range ) ;
-        sh:equals rdfs:domain ;
+        sh:path rdfs:subPropertyOf;
+        sh:class owl:AnnotationProperty;
     ] .
 
-:DomainConsistencyShape a sh:NodeShape ;
-    sh:targetSubjectsOf rdfs:subPropertyOf ;
+:OntologyPropertyShape a sh:NodeShape;
+    sh:class owl:OntologyProperty;
+    sh:not [
+        sh:class owl:ObjectProperty;
+    ];
+    sh:not [
+        sh:class owl:DatatypeProperty;
+    ];
+    sh:not [
+        sh:class owl:AnnotationProperty;
+    ];
+    sh:property [
+        sh:path rdfs:domain;
+        sh:maxCount 0;
+    ];
+    sh:property [
+        sh:path rdfs:range;
+        sh:maxCount 0;
+    ];
+    sh:property [
+        sh:path rdfs:subPropertyOf;
+        sh:class owl:OntologyProperty;
+    ] .
+
+:FunctionalPropertyShape a sh:NodeShape;
+    sh:targetClass owl:FunctionalProperty;
+    sh:property [
+        sh:path [ sh:inversePath rdfs:subPropertyOf ];
+        sh:class owl:FunctionalProperty;
+    ];
+    sh:or (
+        [ sh:class owl:ObjectProperty ]
+        [ sh:class owl:DatatypeProperty ]
+    ) .
+
+:SymmetricPropertyShape a sh:NodeShape;
+    sh:targetClass owl:SymmetricProperty;
+    sh:class owl:ObjectProperty;
+    sh:property [
+        sh:path rdfs:domain;
+        sh:equals rdfs:range;
+    ];
+    sh:property [
+        sh:path [ sh:inversePath rdfs:subPropertyOf ];
+        sh:class owl:SymmetricProperty;
+    ] .
+
+:InversePropertyShape a sh:NodeShape;
+    sh:targetSubjectsOf owl:inverseOf;
+    sh:class owl:ObjectProperty;
+    sh:property [
+        sh:path owl:inverseOf;
+        sh:class owl:ObjectProperty;
+    ];
+    sh:property [
+        sh:path ( owl:inverseOf rdfs:domain );
+        sh:equals rdfs:range;
+    ];
+    sh:property [
+        sh:path ( owl:inverseOf rdfs:range );
+        sh:equals rdfs:domain;
+    ] .
+
+:DomainConsistencyShape a sh:NodeShape;
+    sh:targetSubjectsOf rdfs:subPropertyOf;
     sh:or (
         [ sh:property [
-            sh:path ( rdfs:subPropertyOf rdfs:domain ) ;
-            sh:maxCount 0 ;
+            sh:path ( rdfs:subPropertyOf rdfs:domain );
+            sh:maxCount 0;
         ]]
         [ sh:property [
-            sh:path ( rdfs:subPropertyOf rdfs:domain) ;
-            sh:minCount 1 ;
-            sh:equals rdfs:domain ;
+            sh:path ( rdfs:subPropertyOf rdfs:domain);
+            sh:minCount 1;
+            sh:equals rdfs:domain;
         ]]
     ) .
 
-:RangeConsistencyShape a sh:NodeShape ;
-    sh:targetSubjectsOf rdfs:subPropertyOf ;
+:RangeConsistencyShape a sh:NodeShape;
+    sh:targetSubjectsOf rdfs:subPropertyOf;
     sh:or (
         [ sh:property [
-            sh:path ( rdfs:subPropertyOf rdfs:range ) ;
-            sh:maxCount 0 ;
+            sh:path ( rdfs:subPropertyOf rdfs:range );
+            sh:maxCount 0;
         ]]
         [ sh:property [
-            sh:path ( rdfs:subPropertyOf rdfs:range) ;
-            sh:minCount 1 ;
-            sh:equals rdfs:range ;
+            sh:path ( rdfs:subPropertyOf rdfs:range);
+            sh:minCount 1;
+            sh:equals rdfs:range;
         ]]
     ) .
 
