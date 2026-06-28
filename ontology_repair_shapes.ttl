@@ -75,7 +75,6 @@
     ] .
 
 :DatatypePropertyShape a sh:NodeShape;
-    sh:targetClass owl:DatatypeProperty;
     sh:class owl:DatatypeProperty;
     sh:property [
         sh:path rdfs:range;
